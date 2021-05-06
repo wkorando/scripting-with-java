@@ -29,7 +29,7 @@
 				<configuration>
 					<archive>
 						<manifest>
-							<mainClass>com.bk.cli.ScriptingWithJava</mainClass>
+							<mainClass>LogScanner</mainClass>
 						</manifest>
 					</archive>
 				</configuration>

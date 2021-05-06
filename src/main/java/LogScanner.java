@@ -5,12 +5,11 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.concurrent.ExecutionException;
 import java.util.stream.Stream;
 
 public class LogScanner {
 
-	public static void main(String[] args) throws IOException, InterruptedException, ExecutionException {
+	public static void main(String[] args) throws Exception {
 		var welcomeMessage = """
 				Welcome to log scanner!
 
@@ -23,12 +22,13 @@ public class LogScanner {
 		var searchTerm = new BufferedReader(new InputStreamReader(System.in)).readLine();
 		System.out.print("Directory to search in: ");
 		var rootDirectory = new BufferedReader(new InputStreamReader(System.in)).readLine();
+		var fileType = selectFileType();
 
 		var paths = Files.walk(Paths.get(rootDirectory));
-		var logFiles = paths.filter(p -> p.toFile().isFile()).filter(p -> p.toString().endsWith(".log")).toList();
+		var logFiles = paths.filter(p -> p.toFile().isFile()).filter(p -> p.toString().endsWith(fileType)).toList();
 		paths.close();
 
-		final record LogStatement(String fileName, String logMessage) {
+		record LogStatement(String fileName, String logMessage) {
 		}
 
 		var logStatements = new ArrayList<>();
@@ -39,5 +39,26 @@ public class LogScanner {
 		}
 
 		logStatements.stream().forEach(System.out::println);
+	}
+
+	private static String selectFileType() throws IOException {
+		String fileMessage = """
+				Select the type of file you'd like to search:
+				1. .log
+				2. .txt
+				3. .md
+				Your selection: """;
+		System.out.print(fileMessage);
+
+		var fileTypeSelection = new BufferedReader(new InputStreamReader(System.in)).readLine();
+		return switch (fileTypeSelection) {
+		case "1" -> ".log";
+		case "2" -> ".txt";
+		case "3" -> ".md";
+		default -> {
+			System.out.println("Invalid selection");
+			yield selectFileType();
+		}
+		};
 	}
 }
