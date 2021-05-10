@@ -1,53 +1,25 @@
-# code-example-repo
+# Scripting with Java
 
-This repo demonstrates how to use... [INSERT MORE INFORMATION HERE]
+This repo demonstrates how to use Java can be used as a scripting language. 
+
+Be sure to check out the blog series here: [LINK NEEDED]
+
+The code for each article can be found in the branches:
+
+* article I - Improving Approachability 
+* article II - Reducing Formality
+* article III - Improving Portability and Performance
 
 ## Try it yourself!
 
-For modifying this application the latest version of your preferred IDE is recommend. IntelliJ is often the first the support latest Java features. IDE support is not required however, just the syntax highlighting can be distracting or misleading as newer Java features might not be recognized, or not interpreted correctly. 
+The code in this repo uses Java 16 syntax, so at least that version or later is required to be installed. Instructions below and also recommendations on how  to use multiple Java versions. 
 
-The application can be modified and executed with updated code using either natively or with docker following the instructions below. 
+1. Download the Java 16 JDK: https://jdk.java.net/16
 
-### Running natively
-
-To execute this application natively complete the following steps.
-
-1. Download the Java [CURRENT VERSION] JDK: https://jdk.java.net/[CURRENT VERSION]
-
-2. Installed and configure Java [CURRENT VERSION] as your default runtime.
+2. Install and configure Java 16 as your default runtime.
 
 	**Note:** It is recommended to use a utility that allows for the easy switching of JDK versions, such as [SDKMan](https://sdkman.io/) or [jenv](https://www.jenv.be/)).
 
-
-3. From the root of this project run the following:
-
-	```
-	mvn clean package
-	```
-
-	**Note:** If you don't have Apache Maven installed on your system, update the above command with `./mvnw` on *nix systems or `mvnw` or Windows to use the included Maven wrapper
-
-4. To execute the application run the following command:
-	
-	```
-	java -jar target/*.jar
-	```
-
-### Running with Docker
-
-To execute this application using Docker complete the following steps.
-
-1. From the root of the project execute:
-
-	```
-	docker build . -t [docker tag]
-	```
-
-2. To execute the docker image run:
-	
-	```
-	docker run -t [docker tag]
-	```
 
 ## Questions & Issues
 
