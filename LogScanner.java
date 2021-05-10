@@ -2,7 +2,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.stream.Stream;
@@ -32,7 +31,7 @@ public class LogScanner {
 		}
 
 		var logStatements = new ArrayList<>();
-		for (Path p : logFiles) {
+		for (var p : logFiles) {
 			String fileContents = Files.readString(p);
 			Stream.of(fileContents.split("\n")).filter(l -> l.contains(searchTerm))
 					.forEach(l -> logStatements.add(new LogStatement(p.getFileName().toString(), l)));
