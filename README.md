@@ -6,7 +6,7 @@ Be sure to check out the blog series here: [LINK NEEDED]
 
 The code for each article can be found in the branches:
 
-* article I - Improving Approachability 
+* [article I - Improving Approachability](https://billykorando.com/2021/05/11/scripting-with-java-i/)
 * article II - Reducing Formality
 * article III - Improving Portability and Performance
 
